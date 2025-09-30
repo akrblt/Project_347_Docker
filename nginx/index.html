@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 347 Items</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #333; }
+        ul { list-style: none; padding: 0; }
+        li { background: #f2f2f2; margin: 5px 0; padding: 8px; border-radius: 4px; }
+        input, button { padding: 8px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Project 347 Items</h1>
+    
+    <ul id="itemsList"></ul>
+    
+    <h2>Add New Item</h2>
+    <input type="text" id="itemName" placeholder="Item name">
+    <button onclick="addItem()">Add</button>
+
+    <script>
+        const itemsList = document.getElementById('itemsList');
+        const apiUrl = '/items';
+
+        async function fetchItems() {
+            try {
+                const res = await fetch(apiUrl);
+                const items = await res.json();
+                itemsList.innerHTML = '';
+                items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.id}: ${item.name}`;
+                    itemsList.appendChild(li);
+                });
+            } catch (err) {
+                console.error('Error fetching items:', err);
+            }
+        }
+
+        async function addItem() {
+            const name = document.getElementById('itemName').value.trim();
+            if (!name) return alert('Please enter item name');
+            try {
+                const res = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name })
+                });
+                const newItem = await res.json();
+                document.getElementById('itemName').value = '';
+                fetchItems(); // listeyi güncelle
+            } catch (err) {
+                console.error('Error adding item:', err);
+            }
+        }
+
+        // Sayfa yüklenince listeyi getir
+        fetchItems();
+    </script>
+</body>
+</html>
