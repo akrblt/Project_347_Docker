@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Project 347 Items</title>
+    <title>Project 347 Docker</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 20px; }
         h1 { color: #333; }
@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <h1>Project 347 Items</h1>
+    <h1>Project 347 Docker</h1>
     
     <ul id="itemsList"></ul>
     
@@ -50,13 +50,13 @@
                 });
                 const newItem = await res.json();
                 document.getElementById('itemName').value = '';
-                fetchItems(); // listeyi güncelle
+                fetchItems(); // 
             } catch (err) {
                 console.error('Error adding item:', err);
             }
         }
 
-        // Sayfa yüklenince listeyi getir
+        // 
         fetchItems();
     </script>
 </body>
