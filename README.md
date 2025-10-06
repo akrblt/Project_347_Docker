@@ -53,6 +53,27 @@ MYSQL_DATABASE	appdb	    Nom de la base\
 PORT	        5000    	Port d’écoute du backend\
 
 ## 7 Base de données (MySQL)
+## 7. Database (MySQL)
+
+**Description:**  
+The project uses MySQL as a relational database to store application data, particularly the `items` table managed by the backend. The database runs in a separate Docker service and communicates with the backend through an internal Docker network defined in `docker-compose.yml`.
+
+**Configuration:**  
+- **Container name:** `db`  
+- **Internal port:** 3306 (accessible only from other Docker services)  
+- **User:** `appuser`  
+- **Password:** `apppass`  
+- **Database name:** `appdb`  
+
+**Example `items` table creation (SQL):**
+```sql
+CREATE TABLE IF NOT EXISTS items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 
 ## 8 Tests
 
