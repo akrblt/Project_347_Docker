@@ -72,6 +72,8 @@ CREATE TABLE IF NOT EXISTS items (
     description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+**
+**
 
 
 
