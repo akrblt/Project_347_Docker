@@ -34,14 +34,32 @@ $ cd Project_347_Docker
 https://localhost:8080
 
 ## 5 Frontend
+index.html
+- HTML + CSS natifs (mise en page simple)
+- JavaScript Vanilla (pur) pour communiquer avec une API REST
+
 ## 6 Backend
+### Description
+- API REST construite avec Node.js et Express
+- Intéraction avec la base MySQL via le module mysql2/promise
+- Gère une table items avec des opérations simples de lecture et d'ajout
+  
+### Variables d'environnement
+#### Variable	    Défaut	    Description
+MYSQL_HOST	    db	        Hôte du serveur MySQL\
+MYSQL_USER	    appuser	    Utilisateur MySQL\
+MYSQL_PASSWORD	apppass	    Mot de passe MySQL\
+MYSQL_DATABASE	appdb	    Nom de la base\
+PORT	        5000    	Port d’écoute du backend\
 
 ## 7 Base de données (MySQL)
 
-## 8 Nginx
+## 8 Tests
 
-## 9 Tests
 
-# 10 Déploiment
-
-# 11 Contribution
+# 9 Déploiment, versionning et contribution
+- Déploiment avec Docker Compose
+- Intégration continue via GitHub
+- Convention de commits
+- Branches principales : main et develop
+- Branches feature pour test : "merge-test" et "solution_nodejs_complete"
