@@ -53,19 +53,18 @@ MYSQL_DATABASE	appdb	    Nom de la base\
 PORT	        5000    	Port d’écoute du backend\
 
 ## 7 Base de données (MySQL)
-## 7. Database (MySQL)
 
-**Description:**  
-The project uses MySQL as a relational database to store application data, particularly the `items` table managed by the backend. The database runs in a separate Docker service and communicates with the backend through an internal Docker network defined in `docker-compose.yml`.
+**Description :**  
+Le projet utilise MySQL comme base de données relationnelle pour stocker les données de l’application, notamment la table `items` gérée par le backend. La base est contenue dans un service Docker séparé et communique avec le backend via un réseau interne défini dans `docker-compose.yml`.
 
-**Configuration:**  
-- **Container name:** `db`  
-- **Internal port:** 3306 (accessible only from other Docker services)  
-- **User:** `appuser`  
-- **Password:** `apppass`  
-- **Database name:** `appdb`  
+**Configuration :**  
+- **Nom du conteneur :** `db`  
+- **Port interne :** 3306 (accessible uniquement depuis les autres services Docker)  
+- **Utilisateur :** `appuser`  
+- **Mot de passe :** `apppass`  
+- **Nom de la base de données :** `appdb`  
 
-**Example `items` table creation (SQL):**
+**Exemple de création de la table `items` (SQL) :**
 ```sql
 CREATE TABLE IF NOT EXISTS items (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -75,47 +74,49 @@ CREATE TABLE IF NOT EXISTS items (
 );
 
 
+
 ## 8 Tests
 
 
-**Objective:**  
-To verify that the different services (frontend, backend, database) are functioning correctly and that the REST API responds as expected.
+**Objectif :**  
+Vérifier que les différents services (frontend, backend, base de données) fonctionnent correctement et que l’API REST répond comme attendu.
 
-**Manual Tests:**  
-1. **Backend verification:**
-   - Start the backend container:  
+**Tests manuels :**  
+1. **Vérification du backend :**
+   - Lancer le conteneur backend :  
      ```bash
      docker-compose up backend
      ```
-   - Test the REST API using `curl` or Postman:  
+   - Tester l’API REST avec `curl` ou Postman :  
      ```bash
      curl http://localhost:5000/items
      ```
-     - Should return a JSON list of items (empty if no items have been added).  
-   - Add a new item:  
+     - Doit retourner une liste JSON des items (vide si aucun item n’a été ajouté).  
+   - Ajouter un nouvel item :  
      ```bash
      curl -X POST http://localhost:5000/items -H "Content-Type: application/json" -d '{"name":"Item1","description":"Test"}'
      ```
 
-2. **Database verification:**
-   - Connect to the MySQL container:  
+2. **Vérification de la base de données :**
+   - Se connecter au conteneur MySQL :  
      ```bash
      docker exec -it db mysql -u appuser -p
      ```
-     - Password: `apppass`  
-     - Check the `items` table:  
+     - Mot de passe : `apppass`  
+     - Vérifier la table `items` :  
        ```sql
        USE appdb;
        SELECT * FROM items;
        ```
 
-3. **Frontend verification:**
-   - Access `https://localhost:8080`  
-   - Ensure the page loads and that reading/adding items works correctly.
+3. **Vérification du frontend :**
+   - Accéder à `https://localhost:8080`  
+   - Vérifier que la page charge et que les opérations de lecture/ajout d’items fonctionnent correctement.
 
-**Automated Tests (optional):**  
-- Backend: unit tests using Jest (Node.js) or Pytest (if using Flask).  
-- Scripts: run `npm test` to execute the tests.
+**Tests automatisés (optionnel) :**  
+- Backend : tests unitaires avec Jest (Node.js) ou Pytest (si Flask).  
+- Script : exécuter `npm test` pour lancer les tests.
+
 
 
 
