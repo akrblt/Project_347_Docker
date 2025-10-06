@@ -54,37 +54,29 @@ PORT	        5000    	Port d’écoute du backend\
 
 ## 7 Base de données (MySQL)
 
-**Description :**  
+### Description : 
 Le projet utilise MySQL comme base de données relationnelle pour stocker les données de l’application, notamment la table `items` gérée par le backend. La base est contenue dans un service Docker séparé et communique avec le backend via un réseau interne défini dans `docker-compose.yml`.
 
-**Configuration :**  
-- **Nom du conteneur :** `db`  
-- **Port interne :** 3306 (accessible uniquement depuis les autres services Docker)  
-- **Utilisateur :** `appuser`  
-- **Mot de passe :** `apppass`  
-- **Nom de la base de données :** `appdb`  
+### Configuration : 
+  #### Nom du conteneur : `db`  
+  #### Port interne : 3306 (accessible uniquement depuis les autres services Docker)  
+  #### Utilisateur : `appuser`  
+  #### Mot de passe : `apppass`  
+  #### Nom de la base de données : `appdb`  
 
-**Exemple de création de la table `items` (SQL) :**
-```sql
-CREATE TABLE IF NOT EXISTS items (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-**
-**
+
+
 
 
 
 ## 8 Tests
 
 
-**Objectif :**  
+### Objectif :
 Vérifier que les différents services (frontend, backend, base de données) fonctionnent correctement et que l’API REST répond comme attendu.
 
-**Tests manuels :**  
-1. **Vérification du backend :**
+### Tests manuels :  
+#### 1.Vérification du backend :
    - Lancer le conteneur backend :  
      ```bash
      docker-compose up backend
@@ -99,7 +91,7 @@ Vérifier que les différents services (frontend, backend, base de données) fon
      curl -X POST http://localhost:5000/items -H "Content-Type: application/json" -d '{"name":"Item1","description":"Test"}'
      ```
 
-2. **Vérification de la base de données :**
+#### 2. Vérification de la base de données :
    - Se connecter au conteneur MySQL :  
      ```bash
      docker exec -it db mysql -u appuser -p
@@ -111,11 +103,11 @@ Vérifier que les différents services (frontend, backend, base de données) fon
        SELECT * FROM items;
        ```
 
-3. **Vérification du frontend :**
+#### 3. Vérification du frontend :
    - Accéder à `https://localhost:8080`  
    - Vérifier que la page charge et que les opérations de lecture/ajout d’items fonctionnent correctement.
 
-**Tests automatisés (optionnel) :**  
+#### Tests automatisés (optionnel) :  
 - Backend : tests unitaires avec Jest (Node.js) ou Pytest (si Flask).  
 - Script : exécuter `npm test` pour lancer les tests.
 
