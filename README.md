@@ -78,6 +78,47 @@ CREATE TABLE IF NOT EXISTS items (
 ## 8 Tests
 
 
+**Objective:**  
+To verify that the different services (frontend, backend, database) are functioning correctly and that the REST API responds as expected.
+
+**Manual Tests:**  
+1. **Backend verification:**
+   - Start the backend container:  
+     ```bash
+     docker-compose up backend
+     ```
+   - Test the REST API using `curl` or Postman:  
+     ```bash
+     curl http://localhost:5000/items
+     ```
+     - Should return a JSON list of items (empty if no items have been added).  
+   - Add a new item:  
+     ```bash
+     curl -X POST http://localhost:5000/items -H "Content-Type: application/json" -d '{"name":"Item1","description":"Test"}'
+     ```
+
+2. **Database verification:**
+   - Connect to the MySQL container:  
+     ```bash
+     docker exec -it db mysql -u appuser -p
+     ```
+     - Password: `apppass`  
+     - Check the `items` table:  
+       ```sql
+       USE appdb;
+       SELECT * FROM items;
+       ```
+
+3. **Frontend verification:**
+   - Access `https://localhost:8080`  
+   - Ensure the page loads and that reading/adding items works correctly.
+
+**Automated Tests (optional):**  
+- Backend: unit tests using Jest (Node.js) or Pytest (if using Flask).  
+- Scripts: run `npm test` to execute the tests.
+
+
+
 # 9 Déploiment, versionning et contribution
 - Déploiment avec Docker Compose
 - Intégration continue via GitHub
