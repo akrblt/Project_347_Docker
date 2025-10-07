@@ -33,8 +33,24 @@ $ cd Project_347_Docker
 4. Accéder à l'app :
 https://localhost:8080
 
-## 5 Frontend
-index.html
+## 5. Frontend (Nginx)
+### Description
+
+Le service frontend utilise Nginx pour :
+
+- Servir le fichier index.html (interface utilisateur).
+
+- Rediriger les appels API vers le backend Node.js via un proxy inverse.
+
+- Fournir un point d’entrée unique à l’application web.
+
+### Rôle
+
+- Fournit le contenu statique du dossier /usr/share/nginx/html.
+
+- Transmet les requêtes REST (/items, /health, etc.) au backend via le reverse proxy.
+
+### index.html
 - HTML + CSS natifs (mise en page simple)
 - JavaScript Vanilla (pur) pour communiquer avec une API REST
 
