@@ -10,7 +10,8 @@ Conteneuriser une application web composée de plusieurs services frontend et ba
 Frontend : Nginx\
 Backend : Node.js\
 Base de données: MySQL\
-Orchestration : Docker & Docker Compose
+Orchestration : Docker & Docker Compose \
+Images : Images officielles et stables (voir docker-compose.yml)
 
 ## 2 Structure du projet
 ![alt text](img_1.png)
@@ -24,13 +25,16 @@ Orchestration : Docker & Docker Compose
 
 ## 4 Lancer l'application
 1. Cloner le repo 
+  ``` bash
 $ git clone https://github.com/akrblt/Project_347_Docker.git
-$ cd Project_347_Docker
+```
+- $ cd Project_347_Docker
 
-2. Copier .env.example en .env et remplir les variables
-3. Lancer le conteneur $ docker-compose up --build
+1. Copier .env.example en .env et remplir les variables
+2. Lancer le conteneur 
+- $ docker-compose up --build
 
-4. Accéder à l'app :
+1. Accéder à l'app :
 https://localhost:8080
 
 ## 5. Frontend (Nginx)
