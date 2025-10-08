@@ -1,4 +1,16 @@
 # Virtualisation d'une application avec des conteneurs
+## Auteurs
+Ahmet Kharabulut et David Galindo (SI-CA2a)
+## Table des matières
+1. Introduction
+2. Structure du projet
+3. Installation et configuration
+4. Lancement de l'application
+5. Frontend (Nginx)
+6. Backend
+7. Base de données
+8. Tests
+   
 ## 1 Introduction
 ### Sujet
 Stack Web + DB avec Docker Compose
@@ -6,12 +18,17 @@ Stack Web + DB avec Docker Compose
 ### But
 Conteneuriser une application web composée de plusieurs services frontend et backend.
 
+### Description
+L'application web est un gestionneur d'inventaire permettant d'ajouter des items dans une liste.
+
 ### Stack technique
 Frontend : Nginx\
 Backend : Node.js\
 Base de données: MySQL\
 Orchestration : Docker & Docker Compose \
 Images : Images officielles et stables (voir docker-compose.yml)
+
+
 
 ## 2 Structure du projet
 ![alt text](img_1.png)
@@ -23,7 +40,7 @@ Images : Images officielles et stables (voir docker-compose.yml)
 - MySQL client
 - Variables d'environnement (voir le fichier ".env")
 
-## 4 Lancer l'application
+## 4 Lancement de l'application
 1. Cloner le repo 
   ``` bash
 $ git clone https://github.com/akrblt/Project_347_Docker.git
@@ -84,13 +101,7 @@ Le projet utilise MySQL comme base de données relationnelle pour stocker les do
   #### Mot de passe : `apppass`  
   #### Nom de la base de données : `appdb`  
 
-
-
-
-
-
 ## 8 Tests
-
 
 ### Objectif :
 Vérifier que les différents services (frontend, backend, base de données) fonctionnent correctement et que l’API REST répond comme attendu.
