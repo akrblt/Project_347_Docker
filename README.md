@@ -19,7 +19,7 @@ Stack Web + DB avec Docker Compose
 Conteneuriser une application web composée de plusieurs services frontend et backend.
 
 ### Description
-L'application web est un gestionneur d'inventaire permettant d'ajouter des items dans une liste.
+L'application web est un gestionneur d'inventaire permettant de lire et d'ajouter des items dans une liste.
 
 ### Stack technique
 Frontend : Nginx\
