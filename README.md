@@ -28,7 +28,11 @@ Base de données: MySQL\
 Orchestration : Docker & Docker Compose \
 Images : Images officielles et stables (voir docker-compose.yml)
 
-
+### Futures fonctionnalités à ajouter
+- Supprimer des items
+- Trier
+- Rechercher
+  
 
 ## 2 Structure du projet
 ![alt text](img_1.png)
