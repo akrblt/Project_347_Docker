@@ -142,11 +142,6 @@ Vérifier que les différents services (frontend, backend, base de données) fon
    - Accéder à `https://localhost:8080`  
    - Vérifier que la page charge et que les opérations de lecture/ajout d’items fonctionnent correctement.
 
-#### Tests automatisés (optionnel) :  
-- Backend : tests unitaires avec Jest (Node.js) ou Pytest (si Flask).  
-- Script : exécuter `npm test` pour lancer les tests.
-
-
 
 
 # 9 Déploiment, versionning et contribution
