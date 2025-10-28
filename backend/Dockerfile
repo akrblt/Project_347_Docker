@@ -2,18 +2,18 @@ FROM node:20-slim
 
 WORKDIR /app
 
-# Package dosyalarını kopyala ve bağımlılıkları yükle
+#  copy Package and install package
 COPY package*.json ./
 RUN npm install --production
 
-# Uygulama kodlarını kopyala
+# copy code
 COPY . .
 
-# Non-root user oluştur (güvenlik için)
+# ceate Non-root user 
 RUN useradd --create-home appuser
 USER appuser
 
 EXPOSE 5000
 
-# Uygulamayı başlat
+# run app
 CMD ["npm", "start"]
